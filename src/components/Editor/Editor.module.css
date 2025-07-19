@@ -1,0 +1,30 @@
+.editor {
+  position: relative;
+}
+
+.editorContainer {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  gap: 20px;
+}
+
+.editorContainer :global(.sun-editor) {
+  flex: 1;
+}
+
+.editorContainer[data-loading="true"] {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.loadingOverlay {
+  position: absolute;
+  top: 70px;
+  left: 20px;
+  background-color: #eee;
+  padding: 10px 16px;
+  z-index: 1000;
+  border-radius: 5px;
+  font-size: 12px;
+}

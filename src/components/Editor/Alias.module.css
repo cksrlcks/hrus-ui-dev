@@ -1,0 +1,69 @@
+.aliasContainer {
+  border: 1px solid #ccc;
+  max-width: 150px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  gap: 0.5rem;
+}
+.aliasItem {
+  cursor: pointer;
+  padding: 0.5rem;
+  border: 1px dashed #ccc;
+  font-size: 14px;
+  border-radius: 4px;
+}
+.aliasItem:hover {
+  background-color: #f0f0f0;
+  border-color: #aaa;
+  border-style: solid;
+}
+.aliasItem:active {
+  background-color: #d0e0ff;
+}
+
+:global(.sun-editor-editable .custom-alias) {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background-color: rgb(231, 246, 248);
+  border-radius: 4px;
+  padding: 2px 6px;
+  user-select: none;
+  margin: 0 3px;
+}
+
+:global(.sun-editor-editable .custom-alias span) {
+  font-weight: 700;
+  font-size: 13px;
+  color: rgb(0, 103, 117);
+}
+
+:global(.sun-editor-editable .custom-alias button) {
+  background-color: transparent;
+  border: none;
+  color: #ff0000;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:global(.sun-editor-editable .custom-alias .delete-icon) {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMzAwIDMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cGF0aCBkPSJNNTAgNTAgTDI1MCAyNTAiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMjAiLz4KICA8cGF0aCBkPSJNMjUwIDUwIEw1MCAyNTAiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMjAiLz4KPC9zdmc+");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+:global(.sun-editor-editable .custom-alias button:hover) {
+  background-color: rgba(0, 103, 117, 0.2);
+}
