@@ -1,4 +1,4 @@
-export default function Preview({ results }: { results?: string | null }) {
+export function Preview({ results }: { results?: string | null }) {
   if (!results) return null;
 
   return (

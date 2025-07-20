@@ -1,5 +1,5 @@
 import "./App.css";
-import RootLayout from "./components/Layout/RootLayout";
+import { RootLayout } from "./components/Layout";
 import EditorPage from "./page/Editor";
 import HomePage from "./page/Home";
 import MentionPage from "./page/Mention";

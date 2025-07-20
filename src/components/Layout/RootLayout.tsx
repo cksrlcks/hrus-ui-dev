@@ -8,7 +8,7 @@ const NAV_MENS = [
   { to: "/mention", label: "Mention" },
 ];
 
-export default function RootLayout() {
+export function RootLayout() {
   return (
     <div>
       <ul className="flex space-x-1">

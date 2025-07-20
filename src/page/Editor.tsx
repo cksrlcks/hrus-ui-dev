@@ -1,7 +1,10 @@
-import { Alias, Editor } from "../components/Editor";
-import { useTemplate } from "../components/Editor/useTemplate";
-import Preview from "@/components/Editor/Preview";
-import { replaceAliasesToRealValue } from "@/components/Editor/helper";
+import {
+  Alias,
+  Editor,
+  useTemplate,
+  replaceAliasesToRealValue,
+  Preview,
+} from "../components/Editor";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
