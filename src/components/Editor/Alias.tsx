@@ -1,13 +1,8 @@
 import styles from "./Alias.module.css";
 import { useEditorContext } from "./Editor";
+import type { Alias } from "./type";
 import { useAliasDnD } from "./useAliasDnD";
 import { useState } from "react";
-
-export type Alias = {
-  id: string;
-  value: string;
-  label: string;
-};
 
 type AliasProps = {
   alias?: Alias[] | null;

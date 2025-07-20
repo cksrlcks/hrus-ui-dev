@@ -5,7 +5,7 @@ import { NavLink, Outlet } from "react-router-dom";
 const NAV_MENS = [
   { to: "/", label: "Home" },
   { to: "/editor", label: "Editor" },
-  { to: "/mention", label: "Mention" },
+  //{ to: "/mention", label: "Mention" },
 ];
 
 export function RootLayout() {

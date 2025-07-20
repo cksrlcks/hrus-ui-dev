@@ -5,6 +5,7 @@ import {
   replaceAliasesToRealValue,
   Preview,
 } from "../components/Editor";
+import { Mention } from "@/components/Editor/Mention";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
@@ -14,6 +15,12 @@ const FAKE_ALISAS_VALUE = {
   position: "팀장",
   name: "홍길동",
 };
+
+const ALIASES = [
+  { id: "part", value: "part", label: "부서명" },
+  { id: "position", value: "position", label: "직급" },
+  { id: "name", value: "name", label: "이름" },
+];
 
 export default function EditorPage() {
   const { data: template, isLoading, error } = useTemplate("sample.html");
@@ -31,13 +38,8 @@ export default function EditorPage() {
   return (
     <div className="space-y-8">
       <Editor height="600px" setContents={template} onChange={setData} isLoading={isLoading}>
-        <Alias
-          alias={[
-            { id: "part", value: "part", label: "부서명" },
-            { id: "position", value: "position", label: "직급" },
-            { id: "name", value: "name", label: "이름" },
-          ]}
-        />
+        <Alias alias={ALIASES} />
+        <Mention alias={ALIASES} />
       </Editor>
       <Button type="button" onClick={handleSubmit}>
         버튼

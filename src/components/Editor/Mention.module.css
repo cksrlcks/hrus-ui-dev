@@ -1,0 +1,42 @@
+.mentionContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  padding-top: 10px;
+}
+
+.mentionList {
+  min-width: 120px;
+  max-height: 300px;
+  padding: 10px;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.1);
+}
+
+.mentionItem {
+  padding: 5px;
+  cursor: pointer;
+  color: #888;
+  font-size: 13px;
+  width: 100%;
+  text-align: left;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.mentionItem[aria-selected="true"] {
+  background-color: rgb(231, 246, 248);
+  color: rgb(0, 103, 117);
+  font-weight: 700;
+}
+
+.empty {
+  padding: 10px;
+  color: #888;
+  font-size: 13px;
+  text-align: center;
+}

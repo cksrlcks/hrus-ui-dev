@@ -2,7 +2,6 @@ import "./App.css";
 import { RootLayout } from "./components/Layout";
 import EditorPage from "./page/Editor";
 import HomePage from "./page/Home";
-import MentionPage from "./page/Mention";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
@@ -18,10 +17,10 @@ const router = createBrowserRouter([
         path: "/editor",
         element: <EditorPage />,
       },
-      {
-        path: "/mention",
-        element: <MentionPage />,
-      },
+      // {
+      //   path: "/mention",
+      //   element: <MentionPage />,
+      // },
     ],
   },
 ]);
