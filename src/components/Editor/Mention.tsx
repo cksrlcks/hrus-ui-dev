@@ -1,3 +1,4 @@
+import { useEditorContext } from "./Editor";
 import styles from "./Mention.module.css";
 import type { Alias } from "./type";
 import useMention from "./useMention";
@@ -7,8 +8,9 @@ type MentionProps = {
 };
 
 export function Mention({ alias }: MentionProps) {
+  const { editorRef } = useEditorContext();
   const { showPanel, position, filteredAliases, highlightedIndex, handleMentionSelect } =
-    useMention({ alias });
+    useMention({ editorRef, alias });
 
   if (!showPanel) return null;
 

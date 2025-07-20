@@ -1,20 +1,20 @@
-import { useEditorContext } from "./Editor";
 import { getPositionFromCaret, getQueryFromCaret, renderAlias } from "./helper";
 import type { Alias } from "./type";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
+import SunEditorCore from "suneditor/src/lib/core";
 
 type UseMentionProps = {
+  editorRef: React.RefObject<SunEditorCore | null>;
   alias?: Alias[];
 };
 
-export default function useMention({ alias }: UseMentionProps) {
+export default function useMention({ editorRef, alias }: UseMentionProps) {
   const [showPanel, setShowPanel] = useState(false);
   const [query, setQuery] = useState("");
   const [position, setPosition] = useState({ top: 0, left: 0 });
   const [highlightedIndex, setHighlightedIndex] = useState(-1);
   const [disabledUntilNextSpace, setDisabledUntilNextSpace] = useState(false);
-  const { editorRef } = useEditorContext();
 
   const filteredAliases = useMemo(
     () => alias?.filter(({ label }) => label.toLowerCase().includes(query.toLowerCase())) || [],
