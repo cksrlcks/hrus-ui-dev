@@ -83,4 +83,45 @@ export function useAliasDnD({ editorRef, selectedAlias }: useAliasDnD) {
       window.removeEventListener("click", handleRemoveAlias);
     };
   }, [editorRef]);
+
+  useEffect(() => {
+    const wysiwyg = editorRef.current?.core?.context?.element?.wysiwyg;
+    if (!wysiwyg) return;
+
+    const handleRemoveAlias = (e: Event) => {
+      if (!(e instanceof KeyboardEvent)) return;
+      if (e.key !== "Backspace" && e.key !== "Delete") return;
+
+      const selection = window.getSelection();
+      if (!selection || selection.rangeCount === 0) return;
+
+      const range = selection.getRangeAt(0);
+      const { startContainer, startOffset } = range;
+
+      const isBackspace = e.key === "Backspace";
+      const isDelete = e.key === "Delete";
+
+      if (startContainer.nodeType !== Node.TEXT_NODE) {
+        if (startOffset > 0 && isBackspace) {
+          const prevNode = startContainer.childNodes[startOffset - 1];
+          if (prevNode instanceof HTMLElement && prevNode.matches("[data-alias-value]")) {
+            e.preventDefault();
+            prevNode.remove();
+          }
+        }
+
+        if (startOffset < startContainer.childNodes.length && isDelete) {
+          const nextNode = startContainer.childNodes[startOffset];
+          if (nextNode instanceof HTMLElement && nextNode.matches("[data-alias-value]")) {
+            e.preventDefault();
+            nextNode.remove();
+          }
+        }
+      }
+    };
+    wysiwyg?.addEventListener("keydown", handleRemoveAlias);
+    return () => {
+      wysiwyg?.removeEventListener("keydown", handleRemoveAlias);
+    };
+  }, [editorRef]);
 }
